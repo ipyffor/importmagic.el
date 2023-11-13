@@ -123,7 +123,7 @@ seen on https://github.com/alecthomas/importmagic."
   :keymap (let ((keymap (make-sparse-keymap)))
             (define-key keymap (kbd "C-c C-l") 'importmagic-fix-imports)
             keymap)
-  (when (not (derived-mode-p 'python-mode))
+  (when (not (or (derived-mode-p 'python-mode) (derived-mode-p 'python-ts-mode))
     (error "Importmagic only works with Python buffers"))
   (if importmagic-mode
       (progn
