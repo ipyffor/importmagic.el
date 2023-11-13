@@ -241,7 +241,7 @@ seen on https://github.com/alecthomas/importmagic."
 
 (defun importmagic--auto-update-index ()
   "Update importmagic symbol index with current directory."
-  (when (and (derived-mode-p 'python-mode)
+  (when (and (or (derived-mode-p 'python-mode) (derived-mode-p 'python-ts-mode))
              (f-this-file))
     (importmagic--async-add-dir (importmagic--get-top-level))))
 
