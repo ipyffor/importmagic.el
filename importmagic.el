@@ -123,7 +123,7 @@ seen on https://github.com/alecthomas/importmagic."
   :keymap (let ((keymap (make-sparse-keymap)))
             (define-key keymap (kbd "C-c C-l") 'importmagic-fix-imports)
             keymap)
-  (when (not (or (derived-mode-p 'python-mode) (derived-mode-p 'python-ts-mode))
+  (when (not (or (derived-mode-p 'python-mode) (derived-mode-p 'python-ts-mode)))
     (error "Importmagic only works with Python buffers"))
   (if importmagic-mode
       (progn
@@ -143,7 +143,7 @@ seen on https://github.com/alecthomas/importmagic."
 
 (defun importmagic--teardown-epc ()
   "Stop the EPC server for the current buffer."
-  (when (and (or (derived-mode-p 'python-mode) (derived-mode-p 'python-ts-mode))
+  (when (and (or (derived-mode-p 'python-mode) (derived-mode-p 'python-ts-mode)))
              importmagic-server
              (symbolp 'importmagic-mode)
              (symbol-value 'importmagic-mode)
