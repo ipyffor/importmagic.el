@@ -143,7 +143,7 @@ seen on https://github.com/alecthomas/importmagic."
 
 (defun importmagic--teardown-epc ()
   "Stop the EPC server for the current buffer."
-  (when (and (derived-mode-p 'python-mode)
+  (when (and (or (derived-mode-p 'python-mode) (derived-mode-p 'python-ts-mode))
              importmagic-server
              (symbolp 'importmagic-mode)
              (symbol-value 'importmagic-mode)
